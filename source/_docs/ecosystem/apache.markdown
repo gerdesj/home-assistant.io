@@ -39,12 +39,6 @@ To be able to access to your Home Assistant instance by using https://home.examp
   ProxyPassReverse /api/websocket ws://localhost:8123/api/websocket
   ProxyPass / http://localhost:8123/
   ProxyPassReverse / http://localhost:8123/
-
-  RewriteEngine on
-  RewriteCond %{HTTP:Upgrade} =websocket [NC]
-  RewriteRule /(.*)  ws://localhost:8123/$1 [P,L]
-  RewriteCond %{HTTP:Upgrade} !=websocket [NC]
-  RewriteRule /(.*)  http://localhost:8123/$1 [P,L]
 </VirtualHost>
 ```
 
